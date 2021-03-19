@@ -6,7 +6,7 @@
 /*   By: asorrent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 07:38:44 by asorrent          #+#    #+#             */
-/*   Updated: 2021/03/19 11:30:58 by asorrent         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:43:39 by asorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_writer_x_X(t_id *id, unsigned int num)
 {
 	char	*str;
 	int		len;
-	
+
 	str = ft_itoh(num);
 	if (id->spe == 'X')
 		str = ft_uppstr(str);
@@ -35,7 +35,7 @@ void	ft_writer_x_X(t_id *id, unsigned int num)
 		str[0] = ' ';
 	ft_putstr(str);
 	free(str);
-	if (id->z_left == '-' && len < id->pre) 
+	if (id->z_left == '-' && len < id->pre)
 		ft_writer_z_sp(id->wid, (id->pre), 0);
 	else if (id->z_left == '-')
 		ft_writer_z_sp(id->wid, (len), 0);

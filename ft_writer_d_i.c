@@ -6,7 +6,7 @@
 /*   By: asorrent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:02:17 by asorrent          #+#    #+#             */
-/*   Updated: 2021/03/19 11:21:14 by asorrent         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:41:29 by asorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_writer_d_i(t_id *id, int num)
 	char	*str;
 	int		len;
 	int		neg;
-	
+
 	neg = ft_test_neg(num);
 	str = ft_itoa_pos(num);
 	len = (int)ft_strlen(str);

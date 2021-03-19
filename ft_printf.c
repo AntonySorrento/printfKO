@@ -6,7 +6,7 @@
 /*   By: asorrent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 08:23:30 by asorrent          #+#    #+#             */
-/*   Updated: 2021/03/19 12:02:05 by asorrent         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:38:16 by asorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (0);
-}
-
-int		main()
-{
-	printf("Vraie fonction = {%-*.*i} \n", 8, 4, -41);
-	ft_printf("Ma fonction    = {%-*.*i} \n", 8, 4, -41);
 }
