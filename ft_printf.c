@@ -15,24 +15,21 @@
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	int		i;	
 	t_id	id;
 
-	i = 0;
 	ft_id_ini(&id);
 	va_start(args, str);
-	while (str[i])
+	while (str[id.cur])
 	{
-		if (str[i] == '%' && str[i + 1] != 0)
+		if (str[id.cur] == '%' && str[id.cur + 1] != 0)
 		{
-			ft_sorter(&id, str, i, args);
-			ft_switch(&id, args);
-			i = id.cur;
+			args = ft_sorter(&id, str, args);
+			args = ft_switch(&id, args);
 		}
 		else
 		{
-			ft_putchar(str[i]);
-			i++;
+			ft_putchar(str[id.cur]);
+			id.cur++;
 		}
 	}
 	va_end(args);

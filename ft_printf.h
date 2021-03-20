@@ -28,18 +28,18 @@ typedef struct s_id
 	int			cur;
 }				t_id;
 
-int		ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...); //////
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_ccmp(char c, const char *str);
-void	ft_sorter(t_id *id, const char *str, int i, va_list args);
-int		ft_num_star(const char *str, int i, va_list args);
-int		ft_mv_cur(const char *str, int i);
+va_list	ft_sorter(t_id *id, const char *str, va_list args) ; /////
+va_list	ft_num_star(t_id *id, const char *str, va_list args); /////
+int		ft_mv_cur(const char *str, int i);////// à supprimer
 void	ft_id_ini(t_id *id);
 void	ft_id_ini2(t_id *id);
-void	ft_switch(t_id *id, va_list args);
-void	ft_writer_z_sp(int wid, int len, int zero);
+va_list	ft_switch(t_id *id, va_list args); ////// à faire
+void	ft_writer_z_sp(int wid, int len, int zero); 
 void	ft_writer_s(t_id *id, char *str);
 void	ft_writer_c(t_id *id, int c); 
 void	ft_writer_d_i(t_id *id, int num); 
@@ -48,7 +48,7 @@ void	ft_writer_u(t_id *id, unsigned int num);
 void	ft_writer_x_X(t_id *id, unsigned int num);
 void	ft_writer_p(t_id *id, unsigned long long ad);
 int		ft_test_neg(int num);
-char	*ft_itoa_pos(int num);
+char	*ft_itoa_pos(unsigned int num);
 char	*ft_itoh(unsigned long long num);
 void	ft_putstr_len(char *str, int len);
 char	*ft_uppstr(char *str);

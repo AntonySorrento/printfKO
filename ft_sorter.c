@@ -12,30 +12,34 @@
 
 #include "ft_printf.h"
 
-void	ft_sorter(t_id *id, const char *str, int i, va_list args)
+va_list	ft_sorter(t_id *id, const char *str, va_list args)
 {
-	if (str[++i] == '0' || str[i] == '-')
+	if (str[++id->cur] == '0' || str[id->cur] == '-')
 	{
-		id->z_left = str[i];
-		i++;
+		id->z_left = str[id->cur];
+		id->cur++;
 	}
-	if ((str[i] >= '0' && str[i] <= '9') || str[i] == '*')
-		id->wid = ft_num_star(str, i, args);
+	if ((str[id->cur] >= '0' && str[id->cur] <= '9') || str[id->cur] == '*')
+		args = ft_num_star(id, str, args);
 	if (id->wid < 0)
 	{
 		id->z_left = '-';
 		id->wid = -id->wid;
 	}
-	i = ft_mv_cur(str, i);
-	if (str[i] == '.')
+	if (str[id->cur] == '.')
 	{
-		i++;
-		id->pre = ft_num_star(str, i, args);
-		i = ft_mv_cur(str, i);
+		id->cur++;
+		args = ft_num_star(id, str, args);
 		if (id->z_left == '0')
 			id->z_left = 0;
 	}
-	if (ft_strchr("cspdiuxX%", (int)str[i]))
-		id->spe = str[i];
-	id->cur = ++i;
+	if (ft_strchr("cspdiuxX%", (int)str[id->cur]))
+		id->spe = str[id->cur];
+	id->cur++;
+	return (args);
+	printf("\nid->z_left= %c\n", id->z_left);
+	printf("id->wid = %i\n", id->wid);
+	printf("id->pre = %i\n", id->pre);
+	printf("id->spe = %c\n", id->spe);
+	printf("id->cur = %i\n", id->cur);
 }

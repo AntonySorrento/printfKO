@@ -27,18 +27,18 @@ static int	ft_count_c(unsigned int n)
 	return (nb_c);
 }
 
-char	*ft_itoa_pos(int n)
+char	*ft_itoa_pos(unsigned int n)
 {
 	char	*str;
 	int		i;
 
-	if (n < 0)
-		n = -n;
+//	if (n < 0)
+//		n = -n;
 	str = malloc(sizeof(char) * ft_count_c(n) + 1);
 	if (str == NULL)
 		return (NULL);
 	if (n == 0)
-		return (ft_strcpy(str, "0"));
+		return ("0") ;// avant return (ft_strcpy(str, "0"));
 	i = ft_count_c(n);
 	str[i] = 0;
 	while (n > 0)

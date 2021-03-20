@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_switch(t_id *id, va_list args)
+va_list	ft_switch(t_id *id, va_list args)
 {
 	if (id->spe == 'c')
 		ft_writer_c(id, va_arg(args, int));
@@ -34,4 +34,5 @@ void	ft_switch(t_id *id, va_list args)
 	if (id->spe == 'p')
 		ft_writer_p(id, (va_arg(args, unsigned long long)));
 	ft_id_ini2(id);
+	return (args);
 }
